@@ -21,7 +21,7 @@ Then I realized it was a shame to limit ControlCombo to keyboard shortcut only a
 **How does work the simulation?**
 
 At the very beginning, ControlCombo was developed on Windows, using the Win32com library to perform keyboard actions. This system was very convenient due to the flexibility provided by the Microsoft library. The keyboard sequence interpretation was the core of ControlCombo, and the plugin system was just an additional feature, a goody.
-Then I had to switch to Mac OSX. Not able to use Win32com anymore, I had to find an alternative. Hopefully guys at PyUserInput (https://github.com/SavinaRoja/PyUserInput) developed a pretty nice and cross platform library to simulate keyboard and mouse actions from Python.
+Then I had to switch to Mac OSX. Not able to use Win32com anymore, I had to find an alternative. Hopefully guys at [PyUserInput](https://github.com/SavinaRoja/PyUserInput) developed a pretty nice and cross platform library to simulate keyboard and mouse actions from Python.
 
 This library will be used instead of Win32com, but involve a quite important refactoring in ControlCombo, for the best, making it cross-platform as well!
 
@@ -77,7 +77,7 @@ C 2 R plugin|samplePlugin|methodWithArguments|12|100
 ```
 Here, the actioned is triggered when the 2nd button (2) from the 3rd row (C) is released (R).
 
-<color="#FF0000">Important note : it looks like whitespace, but TABS are actually used for splitting arguments!</color>
+_Important note : it looks like whitespace, but TABS are actually used for splitting arguments!_
 
 
 The pluggin system and its syntax will be more described in the next part.
@@ -99,7 +99,7 @@ So what does mean "plugin|samplePlugin|methodWithArguments|12|100" ?
 2- "plugin" as a firs part mean we are actually using a plugin (and not a Win32com string)
 3- "samplePlugin" refers to the file "samplePlugin.py" present in the "plugin" subfolder.
 4- "methodWithArguments" is a function written in the "samplePlugin.py" file
-5- "12" and "100" are just two arguments for the function "methodWithArguments"
+5- "12" and "100" are just two arguments for the function "methodWithArguments". You can use string with whitespaces, but not TAB!
 
 Here is the content of the file __samplePlugin.py__
 
