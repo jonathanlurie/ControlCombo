@@ -18,7 +18,7 @@ Then I realized it was a shame to limit ControlCombo to keyboard shortcut only a
 
 
 
-## How does work the simulation?
+## How does the simulation work?
 
 At the very beginning, ControlCombo was developed on Windows, using the Win32com library to perform keyboard actions. This system was very convenient due to the flexibility provided by the Microsoft library. The keyboard sequence interpretation was the core of ControlCombo, and the plugin system was just an additional feature, a goody.
 Then I had to switch to Mac OSX. Not able to use Win32com anymore, I had to find an alternative. Hopefully guys at [PyUserInput](https://github.com/SavinaRoja/PyUserInput) developed a pretty nice and cross platform library to simulate keyboard and mouse actions from Python.
@@ -117,7 +117,7 @@ def methodWithArguments(number1, number2):
 TODO
 
 
-## TODO
+## TODOs
 
 - Adding the PyUserInput library
 - Getting rid of Win32com dependances
