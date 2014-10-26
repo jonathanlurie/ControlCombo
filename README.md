@@ -21,4 +21,5 @@ Then I realized it was a shame to limit ControlCombo to keyboard shortcut ony an
 At the very beginning, ControlCombo was developped on Windows, using the Win32com library to perform keyboard actions. This system was very convenient due to the flexibility provided by the Microsoft library. The keyboard sequences interpretation was the core of ControlCombo, and the plugin system was just an additional feature, a goody.
 Then I had to switch to Mac OSX, not able to use Win32com anymore, I had to find an alternative. Hopefully guys at PyUserInput (https://github.com/SavinaRoja/PyUserInput) developed a pretty nice (and cross plateform) library to simulate keyboard and mouse actions from Python.
 This library will be used now instead of Win32com, but involve a quite important refactoring in ControlCombo, for the best, making it cross-plateform as well!
+
 Since keyboard sequences are not as easy to write with PyUserInput as with Win32com, the actions will be perform from plugins exclusivelly. So now, ControlCombo plugins are no longer a goody but a total part of the core.
