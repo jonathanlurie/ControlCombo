@@ -77,7 +77,7 @@ C 2 R plugin|samplePlugin|methodWithArguments|12|100
 ```
 Here, the actioned is triggered when the 2nd button (2) from the 3rd row (C) is released (R).
 
-<font color="red">Important note : it looks like whitespace, but TABS are actually used for splitting arguments!</font>
+<color="#FF0000">Important note : it looks like whitespace, but TABS are actually used for splitting arguments!</color>
 
 
 The pluggin system and its syntax will be more described in the next part.
