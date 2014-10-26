@@ -41,4 +41,65 @@ For example, when the last button of the second row is pressed, the message "8" 
 Since the computer-hosted program knows the size of the matrix, the message sent informs the computer of what button was "actioned", in which way and where it is located within the matrix.
 
 
-**How the mapping of action does work?**
+
+**How does the mapping of action work?**
+
+As said on the previous part, three actions per button are possible. Since we will mostly work with the plugin system (and no more with Win32com sequences), we will describe more extensively this part.
+
+1- The map file
+The map file is a text file located in the "input" directory, and have the extension ".setting". It contains the mapping instrauction: what button, what action, what plugin.
+
+
+1- Spatial organization
+We saw that the Arduino part indexes the button from 1 to N (N being the total number of buttons). The computer-hosted part does not deal with it the same way. Actually the mapping file considers the matrix, as a matrix, with letter-indexed rows and number-indexed columns. A example is always better:
+
+```
+A 1 P plugin|samplePlugin|methodWithArguments|12|100
+
+```
+
+Explanations:
+- A stands for the first row
+- 1 stands for the first column
+- P stands "for Pressed". It would have been "R" for "released" or "H" for "hold"
+- plugin|samplePlugin|methodWithArguments|12|100 is the action associated with this behavior
+
+Other example:
+
+```
+C 2 R plugin|samplePlugin|methodWithArguments|12|100
+```
+Here, the actioned is triggered when the 2nd button (2) from the 3rd row (C) is released (R).
+
+Important note : it looks like whitespace, but TABS are actually used for splitting arguments!
+
+The pluggin system and its syntax will be more described in the next part.
+
+
+**How to use plugins?**
+
+Plugins are python source files, located in the "plugins" subdirectory. They contain functions that may have arguments (as you need).
+
+Lets analyse the previously used mapping instruction:
+
+```
+C 2 R plugin|samplePlugin|methodWithArguments|12|100
+```
+
+So what does mean "plugin|samplePlugin|methodWithArguments|12|100" ?
+
+1- Note the separator is a pipe ("|")
+2- "plugin" as a firs part mean we are actually using a plugin (and not a Win32com string)
+3- "samplePlugin" refers to the file "samplePlugin.py" present in the "plugin" subfolder.
+4- "methodWithArguments" is a function written in the "samplePlugin.py" file
+5- "12" and "100" are just two arguments for the function "methodWithArguments"
+
+Here is the content of the file __samplePlugin.py__
+
+```python
+# shows a simple plugin that takes arguments.
+# just performs a sum and display it.
+def methodWithArguments(number1, number2):
+  result = int(number1) + int(number2)
+  print(">> what about that: " + str(number1) +  " + " + str(number2) + " = " + str(result))
+```
