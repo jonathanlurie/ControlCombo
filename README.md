@@ -1,7 +1,7 @@
 ControlCombo
 ============
 
-**What is it?**
+##H2 What is it?
 
 ControlCombo is a physical button matrix aimed at simulating tricky keyboard shortcuts or other mouse/keyboard interactions. In addition, with a system of plugin, it can perform (in an independant thread) more or less any action coded in Python.
 
