@@ -1,0 +1,20 @@
+documentation for thread:
+
+http://docs.activestate.com/activepython/2.5/pywin32/pythoncom.html
+
+
+
+example for creating photoshop interactions:
+
+http://techarttiki.blogspot.fr/2008/08/photoshop-scripting-with-python.html
+http://win32com.goermezer.de/content/view/249/284/
+http://peterhanshawart.blogspot.fr/2012/05/python-and-photoshop-code-snippets.html
+http://technijunk.blogspot.fr/2013/06/some-useful-python-snippets-for.html
+
+
+# liste de fichiers selectionés
+http://win32com.goermezer.de/content/view/287/284/
+
+
+# exemples sur mac:
+http://stackoverflow.com/questions/1770312/is-there-a-sendkey-for-mac-in-python

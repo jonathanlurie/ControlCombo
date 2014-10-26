@@ -1,0 +1,165 @@
+# this map set the association between the matrix button pad and the keyboard short-cuts.
+#
+# On the matrix, rows are numbered with letters and columns are numbered with figures.
+# 
+# The syntax is simple:
+# LETTER FIGURE STATE ARGUMENT
+# where:
+# LETTER is the row index,
+# FIGURE is the column index,
+# STATE is P for pressed or R for released,
+# ARGUMENT is the keyboard mapping key
+#
+#
+# for example:
+#
+# A 1 P {DOWN}
+# means the button at first row (A) and first column (1) is associated 
+# to the keyboard touch ARROW_DOWN when it is pressed.
+#
+# A 1 R {DOWN}
+# means the button at first row (A) and first column (1) is associated 
+# to the keyboard touch ARROW_DOWN when it is released.
+#
+# To keep the Matrix easy to use, it may not be a good idea to associate
+# both Press and Release functions to the very same button. But still, it is possible.
+#
+#
+# The following list shows that key to argument match:
+#
+#  		Key						Argument
+#
+#  BACKSPACE		{BACKSPACE}, {BS}, or {BKSP}
+#  BREAK					{BREAK}
+#  CAPS LOCK			{CAPSLOCK}
+#  DEL or DELETE		{DELETE} or {DEL}
+#  DOWN ARROW	{DOWN}
+#  END						{END}
+#  ENTER					{ENTER} or ~
+#  ESC						{ESC}
+#  HELP					{HELP}
+#  HOME					{HOME}
+#  INS or INSERT		{INSERT} or {INS}
+#  LEFT ARROW		{LEFT}
+#  NUM LOCK			{NUMLOCK}
+#  PAGE DOWN		{PGDN}
+#  PAGE UP				{PGUP}
+#  PRINT SCREEN	{PRTSC}
+#  RIGHT ARROW		{RIGHT}
+#  SCROLL LOCK		{SCROLLLOCK}
+#  TAB						{TAB}
+#  UP ARROW			{UP}
+#  F1						{F1}
+#  F2						{F2}
+#  F3						{F3}
+#  F4						{F4}
+#  F5						{F5}
+#  F6						{F6}
+#  F7						{F7}
+#  F8						{F8}
+#  F9						{F9}
+#  F10						{F10}
+#  F11						{F11}
+#  F12						{F12}
+#  F13						{F13}
+#  F14						{F14}
+#  F15						{F15}
+#  F16						{F16}
+#  
+#  SHIFT					+
+#  CTRL					^
+#  ALT						%
+#  ENTER					~
+#  
+#  a							a
+#  b							b
+#  c							d
+#  A							A
+#  B							B
+#  C							C
+#  1							1
+#  2							2
+#  3							3
+#  and so on for all the regular letters and numbers
+#  
+#  You can even associate words:
+#  Abc						Abc
+#  10092					10092
+#  hello						hello
+#  
+#  So you can write instruction like that:
+# A 1 P hello
+#
+# but avoid writing instructions with several word like that:
+# A 1 P hello world
+# This will not work!
+#
+#
+# You can combine keys to create usefull shortcut, like copy:
+# A 1 R ^c
+#
+# and paste:
+# A 2 R ^v
+#
+#
+# Now it's your turn! 
+
+
+#A 1 P ^+c+{TAB}+{TAB}+{TAB}+{TAB}~{TAB}{TAB}~
+A	1	P	abc def
+A	1	R
+#A	1	H	Hello, this key (A1) is holded!
+A	1	H	plugin|screenshot|takeScreenshot
+
+A	2	P	
+A	2	R	^c
+
+A	3	R
+A	3	R	^v
+
+B	1	P	^t
+B	1	R
+
+B	2	P	plugin|samplePlugin|helloWorld
+B	2	R	
+
+
+# Combos for Photoshop
+#
+# 1- Resize the image with a width of 1000
+# ^%i1000~
+#
+# 2- Resize the image with a heigh of 1000# ^%{TAB}{TAB}1000~
+
+# Combos for lightroom
+# for more tricks: http://help.adobe.com/fr_FR/lightroom/using/WS18e2013dd74eab5fe275e2711d1b186fe9-8000.html
+# or in english http://help.adobe.com/en_US/lightroom/using/WS18e2013dd74eab5fe275e2711d1b186fe9-8000.html
+#
+# Copy the development parameters (selects all of them)
+# ^+c+{TAB}+{TAB}+{TAB}+{TAB}~{TAB}{TAB}~
+# Paste the development parameters (easier)
+# ^+v
+
+
+
+# USING PLUGINS ***************************************
+#
+#	This software allows you to map not only keyboard action  but also 
+# a wide range of actions provided by plugins.
+# A plugin has to be located in the plugin folder and there is no particular
+# shape for it. The only restriction is that it must contain code in funtion and
+# no "main" or direct naked code. You can check the examples.
+#
+# WARNING: if the action triggerd by a plugin takes a while, for exemple opening a
+# a GUI, it will need to be finished for using the pad --> in this case, think about using
+# Threads!
+#
+# Will take a screenshot of your desktop, save it as a file in the current folder
+# (most of the time the application folder) (no thread required, it's pretty fast)
+# B 2 P plugin|screenshot|takeScreenshot
+#
+# B 2 P plugin|threadTest|runThreadableVideo
+# 
+# B 2 P plugin|simpleTextEdit|openTextEditor
+#
+# B 2 P plugin|samplePlugin|methodWithArguments|12|100
