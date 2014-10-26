@@ -11,14 +11,14 @@ ControlCombo is made of two parts:
 
 
 
-**Why was it made?**
+##H2 Why was it made?
 
 ControlCombo was originally develop to perform tricky keyboard shortcuts used in software like Adobe Photoshop of Adobe Lightroom, in order to add a bit of automatisation and ease at use.
 Then I realized it was a shame to limit ControlCombo to keyboard shortcut only and decided to add a plugin management part. A plugin (written in Python) can perform everything, and does it in a parallel thread. This way, if the triggered action takes a while, it does not block the use of the other buttons.
 
 
 
-**How does work the simulation?**
+##H2 How does work the simulation?
 
 At the very beginning, ControlCombo was developed on Windows, using the Win32com library to perform keyboard actions. This system was very convenient due to the flexibility provided by the Microsoft library. The keyboard sequence interpretation was the core of ControlCombo, and the plugin system was just an additional feature, a goody.
 Then I had to switch to Mac OSX. Not able to use Win32com anymore, I had to find an alternative. Hopefully guys at [PyUserInput](https://github.com/SavinaRoja/PyUserInput) developed a pretty nice and cross platform library to simulate keyboard and mouse actions from Python.
@@ -29,7 +29,7 @@ Since keyboard sequences are not as easy to write with PyUserInput as with Win32
 
 
 
-**How does the communication with Arduino work?**
+##H2 How does the communication with Arduino work?
 
 The Arduino board sends serial messages at 9600 bauds. At the initialization, the board sends a message containing the number of rows and column that composes the matrix, in order to calibrate the computer-hosted program. The test board contains 16 buttons, arranged in a 4x4 matrix, it's not too big, and not too small.
 
@@ -46,7 +46,7 @@ Note: the 1000 factor for the "holding" action may be a limit if a huge matrix i
 
 
 
-**How does the mapping of action work?**
+##H2 How does the mapping of action work?
 
 As said on the previous part, three actions per button are possible. Since we will mostly work with the plugin system (and no more with Win32com sequences), we will describe more extensively this part.
 
@@ -83,7 +83,7 @@ _Important note : it looks like whitespace, but TABS are actually used for split
 The pluggin system and its syntax will be more described in the next part.
 
 
-**How to use plugins?**
+##H2 How to use plugins?
 
 Plugins are python source files, located in the "plugins" subdirectory. They contain functions that may have arguments (as you need).
 
@@ -110,3 +110,17 @@ def methodWithArguments(number1, number2):
   result = int(number1) + int(number2)
   print(">> what about that: " + str(number1) +  " + " + str(number2) + " = " + str(result))
 ```
+
+
+##H2 Dependancies
+
+TODO
+
+
+##H2 TODO
+
+- Adding the PyUserInput library
+- Getting rid of Win32com dependances
+- Writing the list of dependancies
+- Making an advanced plugin for Adobe Lightroom
+- Integrating the bridge to AppleScript in a plugin (clearly not a priority)
