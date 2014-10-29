@@ -124,3 +124,4 @@ TODO
 - Writing the list of dependancies
 - Making an advanced plugin for Adobe Lightroom
 - Integrating the bridge to AppleScript in a plugin (clearly not a priority)
+- Adding LICENCE.md file
